@@ -38,5 +38,8 @@
         <x-sidebar-link :href="route('admin.permissions.index')" :active="request()->routeIs('admin.permissions.index')">
             {{ __('Permissions') }}
         </x-sidebar-link>
+        <x-sidebar-link :href="route('admin.users.index')" :active="request()->routeIs('admin.users.index')">
+            {{ __('Users') }}
+        </x-sidebar-link>
     </nav>
 </div>
