@@ -13,4 +13,20 @@ class PostController extends Controller
 
         return view('posts.index', compact('posts'));
     }
+
+    public function create()
+    {
+        //$this->authorize('create', Post::class);
+        return view('posts.create');
+    }
+
+    public function store(Request $request)
+    {
+        $this->authorize('create', Post::class);
+        $validated = $request->validate(['title' => 'required', 'body' =>
+        'required']);
+        Post::create($validated);
+
+        return to_route('posts.index');
+    }
 }
